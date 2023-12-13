@@ -6,77 +6,39 @@ export default defineConfig({
   pages: [
     {
       slides: [
-        // intro
-        {
-          media: {
-            type: 'sticker',
-            src: import('./assets/stickers/duck_money.tgs'),
-            size: 250,
-          },
-          shape: 'square',
-          pagination: 'count',
-          title: 'Test some changes',
-          description:
-            "",
-          button: 'Next',
-        },
-        // "everything is customizable" slide
-        {
-          media: {
-            type: 'sticker',
-            src: import('./assets/stickers/duck_xray.tgs'),
-            size: 250,
-          },
-          shape: 'square',
-          pagination: 'count',
-          title: 'Everything is customizable',
-          description: '',
-          textAlign: 'center',
-          list: [
-            '<b>CSS styles</b>: extend primary colors from Telegram or set yours',
-            'Button text and actions (look down)',
-            'Use our carefully crafted <b>presets</b> or easily create your own',
-          ],
-          button: 'Super-Duper Next',
-        },
-
-        // slide with other features
-        {
-          media: {
-            type: 'sticker',
-            src: import('./assets/stickers/duck_cool.tgs'),
-            size: 150,
-          },
-          shape: 'square',
-          pagination: 'count',
-          title: 'Some other features:',
-          description: '',
-          list: [
-            'One-click 0$ <b>deploy</b> on GitHub Pages',
-            'Language and currency localization',
-            'Buttons with <b>haptic</b> feedback',
-            'Content pre-loading for high speed',
-            '<b>Low-code</b> approach to building onboardings',
-            'Many examples/presets',
-            "And many more... (see <a href='https://github.com/Easterok/telegram-onboarding-kit' target='_blank'>GitHub</a>)",
-          ],
-          button: 'Next',
-        },
-
         // go to paywall slide
         {
+          extends: 'form',
           media: {
             type: 'sticker',
             src: import('./assets/stickers/duck_knife.tgs'),
             size: 250,
           },
+          form: [
+            {
+              id: 'statistic',
+              placeholder: 'Статистика бота',
+              type: 'checkbox',
+            }, {
+              id: 'referral',
+              placeholder: 'Рефералы',
+              type: 'checkbox',
+            },
+               {
+              id: 'checkbox_from_form',
+              placeholder: 'Информация',
+              type: 'checkbox',
+            },
+          ],
           shape: 'square',
           pagination: 'count',
           textAlign: 'center',
-          title: 'But onboarding slides are not enough...',
-          description: "Let's go to Paywall",
+          title: "<p>\n" +
+              "  <h1 style=\"background-color:SlateBlue;\">Имя фамилия</h1>\n" +
+              "</p>",
+          description: "",
           button: {
-            content: 'Go to Paywall',
+            content: 'Вывести',
             to: '/paywall',
           },
         },
@@ -102,24 +64,35 @@ export default defineConfig({
       products: [
         {
           id: '1_month_subscription',
-          title: '1 month subscription',
-          description: '2$/month',
+          title: 'ecoPays',
+          description: '',
           discount: '',
-          price: 2,
+          price: '',
         },
         {
           id: '1_year_subscription',
-          title: '1 year subscription',
-          description: '1$/month',
-          discount: 'Discount 50%',
-          price: 12,
+          title: 'Neteller',
+          description: '',
+          price: '',
         },
         {
           id: 'lifetime_access',
-          title: 'Lifetime access',
-          description: '20$ once',
-          discount: 'Best offer',
-          price: 20,
+          title: 'Visa',
+          description: '',
+          price: '',
+        },
+                  {
+          id: '1_month_subscription',
+          title: 'MasterCard',
+          description: '',
+          discount: '',
+          price: '',
+        },
+        {
+          id: '1_year_subscription',
+          title: 'PayPal',
+          description: '',
+          price: '',
         },
       ],
       mainButtonText: 'Buy for {price}',
